@@ -106,13 +106,15 @@ public class PaymentOperation: BSApplepayOperation, PKPaymentAuthorizationViewCo
     public var error: BSErrors?
     private let delegate: PaymentOperationDelegate
     private var finishCompletion: ((BSErrors?) -> Void)
+    private let targetViewController : UIViewController?
 
 
-    public init(request: PKPaymentRequest, delegate: PaymentOperationDelegate, completion: @escaping (BSErrors?) -> Void) {
+    public init(request: PKPaymentRequest,targetViewController: UIViewController , delegate: PaymentOperationDelegate, completion: @escaping (BSErrors?) -> Void) {
         self.request = request
         self.finishCompletion = completion
         self.requestController = PKPaymentAuthorizationViewController(paymentRequest: request)
         self.delegate = delegate
+        self.targetViewController = targetViewController
 
     }
 
@@ -179,9 +181,12 @@ public class PaymentOperation: BSApplepayOperation, PKPaymentAuthorizationViewCo
 
         self.requestController!.delegate = self;
         DispatchQueue.main.async {
-            UIApplication.shared.keyWindow?.rootViewController?.present(self.requestController, animated: true, completion: nil) ?? {
+            self.targetViewController?.present(self.requestController, animated: true, completion: nil) ?? {
                 self.finish(with: BSErrors.unknown);
             }()
+//            UIApplication.shared.keyWindow?.rootViewController?.present(self.requestController, animated: true, completion: nil) ?? {
+//                self.finish(with: BSErrors.unknown);
+//            }()
         }
 
 
