@@ -12,23 +12,6 @@ class BSCardinalManager: NSObject {
     private var threeDSAuthResult: String = ThreeDSManagerResponse.AUTHENTICATION_UNAVAILABLE.rawValue
     public static var instance: BSCardinalManager = BSCardinalManager()
     
-    public enum ThreeDSManagerResponse : String{
-        // server response
-        case AUTHENTICATION_BYPASSED
-        case AUTHENTICATION_SUCCEEDED
-        case AUTHENTICATION_UNAVAILABLE
-        case AUTHENTICATION_FAILED
-        
-        // challenge was canceled by the user
-        case AUTHENTICATION_CANCELED
-
-        // cardinal internal error or server error
-        case THREE_DS_ERROR
-        
-        // V1 unsupported cards
-        case CARD_NOT_SUPPORTED
-    }
-    
     override private init(){}
     
     internal func setCardinalJWT(cardinalToken: String?) {
@@ -88,10 +71,10 @@ class BSCardinalManager: NSObject {
         
     }
     
-    public func authWith3DS(currency: String, amount: String, creditCardNumber: String? = nil, _ completion: @escaping (BSErrors?) -> Void) {
+    public func authWith3DS(currency: String, amount: String, creditCardNumber: String? = nil, _ completion: @escaping (String, BSErrors?) -> Void) {
         if (!is3DSecureEnabled() || isCardinalError()){ // 3DS is disabled in merchant configuration or error occurred
             NSLog("skipping since 3D Secure is disabled or cardinal error")
-            completion(nil)
+            completion(threeDSAuthResult, nil)
             return
         }
 
@@ -101,7 +84,7 @@ class BSCardinalManager: NSObject {
             if (error != nil) {
                 NSLog("BS Server Error in 3DS Auth API call: \(String(describing: error))")
                 self.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.THREE_DS_ERROR.rawValue);
-                completion(error)
+                completion(self.threeDSAuthResult, error)
             }
         
             if let response = response, let enrollmentStatus = response.enrollmentStatus, let threeDSVersion = response.threeDSVersion {
@@ -112,19 +95,19 @@ class BSCardinalManager: NSObject {
                     
                     if (!(firstChar == BSCardinalManager.SUPPORTED_CARD_VERSION)) {
                         self.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.CARD_NOT_SUPPORTED.rawValue);
-                        completion(nil)
+                        completion(self.threeDSAuthResult, nil)
                     } else { // call process to trigger cardinal challenge
                         self.process(response: response ,creditCardNumber: creditCardNumber, completion: completion)
                     }
                     
                 } else { // populate Enrollment Status as 3DS result
                     self.setThreeDSAuthResult(threeDSAuthResult: enrollmentStatus)
-                    completion(nil)
+                    completion(self.threeDSAuthResult, nil)
                 }
             } else {
                 self.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.THREE_DS_ERROR.rawValue);
                 NSLog("Error in getting response from 3DS Auth API call")
-                completion(nil)
+                completion(self.threeDSAuthResult, nil)
             }
 
         })
@@ -133,9 +116,9 @@ class BSCardinalManager: NSObject {
     
     private class validationDelegate: CardinalValidationDelegate {
         
-        var completion :  (BSErrors?) -> Void
+        var completion :  (String, BSErrors?) -> Void
         
-        init (_ completion: @escaping (BSErrors?) -> Void) {
+        init (_ completion: @escaping (String, BSErrors?) -> Void) {
             self.completion = completion
         }
         
@@ -149,21 +132,21 @@ class BSCardinalManager: NSObject {
                 
             case .failure:
                 BSCardinalManager.instance.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.AUTHENTICATION_FAILED.rawValue)
-                completion(nil)
+                completion(BSCardinalManager.instance.getThreeDSAuthResult(), nil)
                 break
                 
             case .error:
                 BSCardinalManager.instance.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.THREE_DS_ERROR.rawValue)
-                completion(nil)
+                completion(BSCardinalManager.instance.getThreeDSAuthResult(), nil)
                 break
                 
             case .cancel:
                 BSCardinalManager.instance.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.AUTHENTICATION_CANCELED.rawValue)
-                completion(nil)
+                completion(BSCardinalManager.instance.getThreeDSAuthResult(), nil)
                 break
             case .timeout:
                 BSCardinalManager.instance.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.THREE_DS_ERROR.rawValue)
-                completion(nil)
+                completion(BSCardinalManager.instance.getThreeDSAuthResult(), nil)
                 break
                 
             }
@@ -172,7 +155,7 @@ class BSCardinalManager: NSObject {
         
     }
     
-    private func process(response: BS3DSAuthResponse?, creditCardNumber: String?, completion: @escaping (BSErrors?) -> Void) {
+    private func process(response: BS3DSAuthResponse?, creditCardNumber: String?, completion: @escaping (String, BSErrors?) -> Void) {
         let delegate : validationDelegate = validationDelegate(completion)
 
         
@@ -196,23 +179,23 @@ class BSCardinalManager: NSObject {
         }
     }
     
-    private func processCardinalResult(resultJwt: String, completion: @escaping (BSErrors?) -> Void) {
+    private func processCardinalResult(resultJwt: String, completion: @escaping (String, BSErrors?) -> Void) {
         
         BSApiManager.processCardinalResult(cardinalToken: cardinalToken!, resultJwt: resultJwt, completion: { response, error in
             if (error != nil) {
                 NSLog("BS Server Error in 3DS process result API call: \(String(describing: error))")
                 self.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.THREE_DS_ERROR.rawValue);
-                completion(error)
+                completion(self.threeDSAuthResult, error)
             }
             
             if let response = response, let authResult = response.authResult {
                 self.setThreeDSAuthResult(threeDSAuthResult: authResult)
-                completion(nil)
+                completion(self.threeDSAuthResult, nil)
                 
             } else {
                 NSLog("Error in getting response from 3DS process result API call")
                 self.setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.THREE_DS_ERROR.rawValue);
-                completion(nil)
+                completion(self.threeDSAuthResult, nil)
             }
             
         })
@@ -230,11 +213,12 @@ class BSCardinalManager: NSObject {
     
     private func setCardinalError(cardinalError: Bool) {
         if (cardinalError) {
-            setThreeDSAuthResult(threeDSAuthResult: BSCardinalManager.ThreeDSManagerResponse.THREE_DS_ERROR.rawValue);
+            setThreeDSAuthResult(threeDSAuthResult: ThreeDSManagerResponse.THREE_DS_ERROR.rawValue);
         }
         self.cardinalError = cardinalError;
     }
     
+    // for internal use only- getting the 3DS result for populating the sdkResult 
     public func getThreeDSAuthResult() -> String {
         return threeDSAuthResult
     }

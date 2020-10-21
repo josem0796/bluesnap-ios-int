@@ -418,21 +418,20 @@ class BSPaymentViewController: UIViewController, UITextFieldDelegate, BSCcInputL
         self.ccInputLine.submitPaymentFields(purchaseDetails: self.purchaseDetails, { ccn, creditCard, error in
             self.stopActivityIndicator(stopProgressBar: false)
             BSCardinalManager.instance.authWith3DS(currency: self.purchaseDetails.getCurrency(), amount: String(self.purchaseDetails.getAmount()), creditCardNumber: ccn,
-                                                   { error2 in
+                                                   { cardinalResult, error2 in
                                                     
-                                                    let cardinalResult = BSCardinalManager.instance.getThreeDSAuthResult()
-                                                    if (cardinalResult == BSCardinalManager.ThreeDSManagerResponse.AUTHENTICATION_CANCELED.rawValue) { // cardinal challenge canceled
+                                                    if (cardinalResult == ThreeDSManagerResponse.AUTHENTICATION_CANCELED.rawValue) { // cardinal challenge canceled
                                                         NSLog(BSLocalizedStrings.getString(BSLocalizedString.Three_DS_Authentication_Required_Error))
                                                         self.stopActivityIndicator()
                                                         self.showAlert(BSLocalizedStrings.getString(BSLocalizedString.Three_DS_Authentication_Required_Error))
                                                         
-                                                    } else if (cardinalResult == BSCardinalManager.ThreeDSManagerResponse.THREE_DS_ERROR.rawValue) { // server or cardinal internal error
+                                                    } else if (cardinalResult == ThreeDSManagerResponse.THREE_DS_ERROR.rawValue) { // server or cardinal internal error
                                                         NSLog("Unexpected BS server error in 3DS authentication; error: \(error2)")
                                                         let message = BSLocalizedStrings.getString(BSLocalizedString.Error_Three_DS_Authentication_Error) + "\n" + (error2?.description() ?? "")
                                                         self.stopActivityIndicator()
                                                         self.showAlert(message)
                                                         
-                                                    } else if (cardinalResult == BSCardinalManager.ThreeDSManagerResponse.AUTHENTICATION_FAILED.rawValue) { // authentication failure
+                                                    } else if (cardinalResult == ThreeDSManagerResponse.AUTHENTICATION_FAILED.rawValue) { // authentication failure
                                                         DispatchQueue.main.async {
                                                             self.ccInputLine.delegate?.didSubmitCreditCard(creditCard: creditCard, error: error)
                                                         }

@@ -89,3 +89,20 @@ public enum BSErrors: Int {
     }
 
 }
+
+public enum ThreeDSManagerResponse : String{
+    // server response
+    case AUTHENTICATION_BYPASSED
+    case AUTHENTICATION_SUCCEEDED
+    case AUTHENTICATION_UNAVAILABLE
+    case AUTHENTICATION_FAILED
+    
+    // challenge was canceled by the user
+    case AUTHENTICATION_CANCELED
+
+    // cardinal internal error or server error
+    case THREE_DS_ERROR
+    
+    // V1 unsupported cards
+    case CARD_NOT_SUPPORTED
+}
