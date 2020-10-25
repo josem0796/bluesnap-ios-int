@@ -315,7 +315,7 @@ open class BlueSnapSDK: NSObject {
      - creditCardNumber: shopper's credit card number
      - completion: function to call once the authentication is done; will receive string that is the authentication result, and optional error.
     */
-    static func authenticationWith3DS(currency: String, amount: String, creditCardNumber: String? = nil, _ completion: @escaping (String, BSErrors?) -> Void) {
+    open class func authenticationWith3DS(currency: String, amount: String, creditCardNumber: String? = nil, _ completion: @escaping (String, BSErrors?) -> Void) {
         
         BSCardinalManager.instance.authWith3DS(currency: currency, amount: amount, creditCardNumber: creditCardNumber, completion)
 
