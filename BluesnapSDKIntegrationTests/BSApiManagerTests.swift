@@ -319,7 +319,7 @@ class BSApiManagerTests: XCTestCase {
 
         let ccn = "4111 1111 1111 1111"
         let cvv = "111"
-        let exp = "10/2020"
+        let exp = "10/2030"
 
         let semaphore = DispatchSemaphore(value: 0)
         BSIntegrationTestingAPIHelper.createToken(completion: { token, error in
@@ -347,7 +347,7 @@ class BSApiManagerTests: XCTestCase {
 
         let ccn = "4111 1111 1111 1111"
         let cvv = "111"
-        let exp = "10/2020"
+        let exp = "10/2030"
 
         let semaphore = DispatchSemaphore(value: 0)
         self.submitCcDetails(ccNumber: ccn, expDate: exp, cvv: cvv, completion: {

@@ -12,7 +12,7 @@ import XCTest
 class BluesnapSDKIntegrationTests: XCTestCase {
     let email = "test@sdk.com"
 
-    let purchaseCCData = ["cardLastFourDigits": "1111", "expirationMonth": "10","expirationYear": "2020", "cardType": "VISA"]
+    let purchaseCCData = ["cardLastFourDigits": "1111", "expirationMonth": "10","expirationYear": "2030", "cardType": "VISA"]
 
     let purchaseBillingData = [ "firstName": "La", "lastName": "Fleur", "address1": "555 Broadway street",
                                 "city": "New York", "zip": "3abc 324a", "country": "us", "state": "NY"]

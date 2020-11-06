@@ -30,7 +30,7 @@ class BluesnapSDKTests: XCTestCase {
  
         let ccn = "4111 1111 1111 1111"
         let cvv = "111"
-        let exp = "10/2020"
+        let exp = "10/2030"
         let tokenizeRequest = BSTokenizeRequest()
         tokenizeRequest.paymentDetails = BSTokenizeNewCCDetails(ccNumber: ccn, cvv: cvv, ccType: nil, expDate: exp)
 
