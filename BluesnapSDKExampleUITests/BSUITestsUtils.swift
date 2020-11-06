@@ -272,11 +272,11 @@ class BSUITestUtils {
     }
     
     static func getVisaCard() -> [String: String] {
-        return ["ccn": "4111111111111111", "exp": "10/2020", "cvv": "111", "ccType": "VISA", "last4Digits": "1111", "issuingCountry": "US"]
+        return ["ccn": "4111111111111111", "exp": "10/2025", "cvv": "111", "ccType": "VISA", "last4Digits": "1111", "issuingCountry": "US"]
     }
     
     static func getMasterCard() -> [String: String] {
-        return ["ccn": "5555555555555557", "exp": "11/2021", "cvv": "123", "ccType": "MASTERCARD", "last4Digits": "5557", "issuingCountry": "BR"]
+        return ["ccn": "5555555555555557", "exp": "11/2025", "cvv": "123", "ccType": "MASTERCARD", "last4Digits": "5557", "issuingCountry": "BR"]
     }
     
     static func getDummyBillingDetails(countryCode: String? = "CA", stateCode: String? = "ON") -> BSBillingAddressDetails {

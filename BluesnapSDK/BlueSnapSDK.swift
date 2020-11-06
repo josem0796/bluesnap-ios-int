@@ -306,6 +306,21 @@ open class BlueSnapSDK: NSObject {
     open class func getLastPaymentInfo() -> [String: Any]? {
         BSApiManager.shopper?.lastPaymentInfo
     }
+    
+    /**
+     Provoke 3DS Authentication
+     - parameters:
+     - currency: shopper's selected currency
+     - amount: purchase amount
+     - creditCardNumber: shopper's credit card number
+     - completion: function to call once the authentication is done; will receive string that is the authentication result, and optional error.
+    */
+    open class func authenticationWith3DS(currency: String, amount: String, creditCardNumber: String? = nil, _ completion: @escaping (String, BSErrors?) -> Void) {
+        
+        BSCardinalManager.instance.authWith3DS(currency: currency, amount: amount, creditCardNumber: creditCardNumber, completion)
+
+    }
+
 
 
     // MARK: Utility functions for quick testing

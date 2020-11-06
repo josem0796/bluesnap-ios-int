@@ -48,6 +48,11 @@ class BluesnapSDKIntegrationTests: XCTestCase {
                     BlueSnapSDK.submitTokenizedDetails(tokenizeRequest: tokenizeRequest, completion: { (result, error) in
                         XCTAssertNil(error, "error: \(String(describing: error))")
                         
+                        // verify the received details from the server call
+                        XCTAssertEqual(result[BSTokenizeBaseCCDetails.CARD_TYPE_KEY], "VISA")
+                        XCTAssertEqual(result[BSTokenizeBaseCCDetails.LAST_4_DIGITS_KEY], "1111")
+                        XCTAssertEqual(result[BSTokenizeBaseCCDetails.ISSUING_COUNTRY_KEY], "US")
+                        
                         BSIntegrationTestingAPIHelper.createTokenizedTransaction(
                             purchaseAmount: 22.0,
                             purchaseCurrency: "USD",
