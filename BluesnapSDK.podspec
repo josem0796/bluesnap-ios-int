@@ -14,7 +14,10 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.source       = { :git => "https://github.com/bluesnap/bluesnap-ios.git", :tag => "#{s.version}" }
   s.source_files  = "BluesnapSDK/**/*.{h,m,swift,a}"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0', 'ONLY_ACTIVE_ARCH' => 'NO' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0',
+                            'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+                            'ONLY_ACTIVE_ARCH' => 'NO' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.resource_bundles = {
     'BluesnapUI' => [
         'BluesnapSDK/**/*.xib',
