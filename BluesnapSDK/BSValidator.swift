@@ -356,18 +356,17 @@ public class BSValidator: NSObject {
         var ok = false
         var msg = expInvalidMessage
         if let month = Int(mm), let year = Int(yy) {
-            let myCalendar = Calendar(identifier: .gregorian)
+            let calendar = Calendar(identifier: .gregorian)
             var dateComponents = DateComponents()
             let currYear : Int! = getCurrentYear()
             if yy.count < 4 {
-                let temp = (currYear / 100)*100
                 dateComponents.year = year + (currYear / 100)*100
             } else {
                 dateComponents.year = year
             }
             dateComponents.month = month
             dateComponents.day = 1
-            let expDate = Calendar.current.date(from: dateComponents)!
+            let expDate = calendar.date(from: dateComponents)!
             if dateComponents.year! > currYear + 10 {
                 ok = false
             } else if expDate < Date() {
