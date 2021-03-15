@@ -329,7 +329,8 @@ import Foundation
             
         } else if let ccDetails = tokenizeRequest.paymentDetails as? BSTokenizeBaseCCDetails {
             parseFunction = BSApiCaller.parseCCResponse
-            if let cardType = ccDetails.ccType {
+            if var cardType = ccDetails.ccType {
+                cardType = cardType.uppercased()
                 requestBody[BSTokenizeBaseCCDetails.CARD_TYPE_KEY] = cardType
             }
             if let expDate = ccDetails.expDate {
