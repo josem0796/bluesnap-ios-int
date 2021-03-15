@@ -416,7 +416,7 @@ import Foundation
         
         BSApiCaller.submitPaymentDetails(bsToken: getBsToken(), requestBody: requestBody, parseFunction: parseFunction, completion: { resultData, error in
             NSLog("BlueSnap; submitCcDetails completion")
-            if error == BSErrors.expiredToken || error == BSErrors.tokenNotFound {
+            if error == BSErrors.expiredToken || error == BSErrors.tokenNotFound || error == BSErrors.tokenAlreadyUsed {
                 // regenerate Token and try again
                 NSLog("BlueSnap; submitCcDetails retry")
                 regenerateToken(executeAfter: {
