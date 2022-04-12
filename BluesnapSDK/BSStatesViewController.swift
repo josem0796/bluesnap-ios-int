@@ -19,7 +19,6 @@ class BSStatesViewController : BSBaseListController {
     // this is just a default
     fileprivate var updateFunc : (String, String)->Void = {
         code, name in
-        NSLog("state \(code):\(name) was selected")
     }
    
     // MARK: init

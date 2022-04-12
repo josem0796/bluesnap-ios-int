@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  RatesSwiftExample
+//  This is an example of a view controller using the SDK
 //
 ////
 
@@ -369,10 +369,7 @@ class ViewController: UIViewController {
             NSLog("ChosenPaymentMethodType: \(purchaseDetails.getChosenPaymentMethodType().rawValue)")
             if purchaseDetails is BSCcSdkResult, let ccPurchaseDetails = purchaseDetails as? BSCcSdkResult{
                 let creditCard = ccPurchaseDetails.creditCard
-                NSLog("CC Expiration: \(creditCard.getExpiration())")
-                NSLog("CC type: \(creditCard.ccType ?? "")")
-                NSLog("CC last 4 digits: \(creditCard.last4Digits ?? "")")
-                NSLog("CC Issuing country: \(creditCard.ccIssuingCountry ?? "")")
+            
             }
             showThankYouScreen(errorText: nil)
             return // no need to complete purchase via BlueSnap API
@@ -396,10 +393,6 @@ class ViewController: UIViewController {
             
         } else if let ccPurchaseDetails = purchaseDetails as? BSCcSdkResult {
             let creditCard = ccPurchaseDetails.creditCard
-            NSLog("CC Expiration: \(creditCard.getExpiration())")
-            NSLog("CC type: \(creditCard.ccType ?? "")")
-            NSLog("CC last 4 digits: \(creditCard.last4Digits ?? "")")
-            NSLog("CC Issuing country: \(creditCard.ccIssuingCountry ?? "")")
             isSubscription = purchaseDetails.isSubscriptionCharge()
         }
 

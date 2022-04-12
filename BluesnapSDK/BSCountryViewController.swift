@@ -18,7 +18,6 @@ class BSCountryViewController : BSBaseListController {
     // this is just a default
     fileprivate var updateFunc : (String, String)->Void = {
         countryCode, countryName in
-        NSLog("Country \(countryCode):\(countryName) was selected")
     }
     
     
