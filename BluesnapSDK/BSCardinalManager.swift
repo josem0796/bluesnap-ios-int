@@ -2,7 +2,6 @@ import Foundation
 import CardinalMobile
 
 
-
 class BSCardinalManager: NSObject {
 
     internal static let SUPPORTED_CARD_VERSION = "2"
@@ -39,7 +38,6 @@ class BSCardinalManager: NSObject {
 
             config.deploymentEnvironment = .staging
         }
-        config.timeout = 23000
         config.uiType = .native
 
         let renderType = [CardinalSessionRenderTypeOTP, CardinalSessionRenderTypeHTML]
