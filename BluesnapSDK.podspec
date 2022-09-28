@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BluesnapSDK"
-  s.version      = "1.4.4"
+  s.version      = "1.5.0"
   s.summary      = "An iOS SDK for Bluesnap "
   s.description  = <<-DESC
   Integrate payment methods into your iOS native apps quickly and easily.
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
   s.swift_version = '5.0'
   s.source       = { :git => "https://github.com/bluesnap/bluesnap-ios.git", :tag => "#{s.version}" }
-  s.source_files  = "BluesnapSDK/**/*.{h,m,swift,a}"
+  #s.source_files  = "BluesnapSDK/**/*.{h,m,swift}"
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0',
                             'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
                             'ONLY_ACTIVE_ARCH' => 'NO' }
@@ -26,18 +26,40 @@ Pod::Spec.new do |s|
         'BluesnapSDK/**/*.strings' 
 	]
   }
-  s.exclude_files =  ["BluesnapSDK/Frameworks/CardinalMobile.xcframework/**/CardinalMobile.framework/Headers/**", "BluesnapSDK/BluesnapSDKTests/**/*.*","BluesnapSDK/BluesnapSDKIntegrationTests/**/*.*","BluesnapSDK/**/libKountDataCollector.a","BluesnapSDK/**/KDataCollector.{h,m}" ]
-  s.ios.vendored_frameworks = 'BluesnapSDK/Frameworks/CardinalMobile.xcframework'
-  
+
+  s.default_subspecs = %w[Core KDataCollector]
+
+
+  #s.exclude_files =  ["Frameworks/FATFrameworks/CardinalMobile/**/", "BluesnapSDK/BluesnapSDKTests/**/*.*","BluesnapSDK/BluesnapSDKIntegrationTests/**/*.*","BluesnapSDK/**/libKountDataCollector.a","BluesnapSDK/**/KDataCollector.{h,m}" ]
+  s.exclude_files =  ["Frameworks/XCFrameworks/KountDataCollector.xcframework/**" "Frameworks/FATFrameworks/CardinalMobile/**/", "BluesnapSDK/BluesnapSDKTests/**/*.*","BluesnapSDK/BluesnapSDKIntegrationTests/**/*.*", "BluesnapSDK/**/libKountDataCollector.a","BluesnapSDK/**/KDataCollector.{h,m}"]
+  #s.ios.vendored_frameworks = ['Frameworks/FATFrameworks/CardinalMobile.framework', 'Frameworks/XCFrameworks/KountDataCollector.xcframework']
+  s.ios.vendored_frameworks = ['Frameworks/FATFrameworks/CardinalMobile.framework']
+  #s.preserve_path = 'Frameworks/XCFrameworks/**'
+
   s.resources = "BluesnapSDK/**/Media.xcassets"
   s.frameworks                     = 'Foundation', 'Security', 'WebKit', 'PassKit', 'AddressBook', 'UIKit' ,
   s.weak_frameworks                = 'Contacts'
   s.requires_arc = true
-  s.subspec "DataCollector" do |s|
-    s.source_files = "BluesnapSDK/**/KDataCollector.{h,m}"
-    s.public_header_files = "BluesnapSDK/**/KDataCollector*.h"
-    s.public_header_files = "BluesnapSDK/**/KDataCollector*.h"
-    s.vendored_library = "BluesnapSDK/**/libKountDataCollector.a"
-    end
+
+  
+  s.subspec "KDataCollector" do |s|
+      s.public_header_files = "BluesnapSDK/**/KDataCollector*.h","BluesnapSDK/**/KountAnalyticsViewController.h"
+      s.vendored_frameworks = "Frameworks/XCFrameworks/KountDataCollector.xcframework"
+  
+  end
+
+  # s.subspec "ThreeDS" do |s|
+  #      s.source_files = "BluesnapSDK/**/BS3DS*.{h,m,swift}"
+  #      #s.public_header_files = "BluesnapSDK/*.h"
+  #      s.vendored_frameworks = "Frameworks/XCFrameworks/CardinalMobile.xcframework"
+  #      s.dependency "BluesnapSDK/Core"
+
+  # end
+
+  s.subspec "Core" do |s|
+    s.source_files  = "BluesnapSDK/**/*.{h,m}"
+    s.public_header_files = "BluesnapSDK/BluesnapSDK.h"
+    s.dependency "BluesnapSDK/KDataCollector"
+  end
 
 end

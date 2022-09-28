@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D2B274828CF5AD500F1BD13 /* CardinalMobile.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2DD05CC628CF56630089AF13 /* CardinalMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D374F311E880E7300AE2A81 /* BluesnapSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D374F231E880E7200AE2A81 /* BluesnapSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D374F491E880EF100AE2A81 /* BSCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D374F3E1E880EF100AE2A81 /* BSCurrencyModel.swift */; };
 		2D374F4C1E880EF100AE2A81 /* BSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D374F411E880EF100AE2A81 /* BSToken.swift */; };
@@ -35,7 +34,6 @@
 		2D6D37EF22B83F62006D3E9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37CF22B83F25006D3E9F /* ViewController.swift */; };
 		2D6D37F222B84495006D3E9F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37AB22B83F25006D3E9F /* Configuration.swift */; };
 		2DADB9D51EC31F3200C1A2D2 /* BlueSnap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DADB9D71EC31F3200C1A2D2 /* BlueSnap.storyboard */; };
-		2DBB606B1F8CB8F800E80254 /* libKountDataCollector.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBB606A1F8CB8F800E80254 /* libKountDataCollector.a */; };
 		2DBD194522B9595700DDB5E2 /* ReturningShopperMinimalBillingWithEmailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBD191F22B9595400DDB5E2 /* ReturningShopperMinimalBillingWithEmailTests.swift */; };
 		2DBD194622B9595700DDB5E2 /* ReturningShopperFullBillingWithEmailWithShippingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBD192022B9595400DDB5E2 /* ReturningShopperFullBillingWithEmailWithShippingTests.swift */; };
 		2DBD194722B9595700DDB5E2 /* ReturningShopperMinimalBillingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBD192122B9595400DDB5E2 /* ReturningShopperMinimalBillingTests.swift */; };
@@ -73,9 +71,13 @@
 		2DBD196822B9599F00DDB5E2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37AB22B83F25006D3E9F /* Configuration.swift */; };
 		2DBD196922B9599F00DDB5E2 /* DemoAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37CE22B83F25006D3E9F /* DemoAPIHelper.swift */; };
 		2DBD196A22B959BB00DDB5E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37AD22B83F25006D3E9F /* AppDelegate.swift */; };
-		2DD05CC728CF56630089AF13 /* CardinalMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD05CC628CF56630089AF13 /* CardinalMobile.xcframework */; };
 		2DD2470522F31C12003F2B4F /* BSCardinalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2470422F31C12003F2B4F /* BSCardinalManager.swift */; };
 		2DD7F11D1E8828B2002C5571 /* BluesnapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D374F201E880E7200AE2A81 /* BluesnapSDK.framework */; };
+		2DE768BE28E4EDA300FDC54E /* KDataCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE768BC28E4EDA300FDC54E /* KDataCollector.h */; };
+		2DE768BF28E4EDA300FDC54E /* KountAnalyticsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE768BD28E4EDA300FDC54E /* KountAnalyticsViewController.h */; };
+		2DF26EE328DF90810012F200 /* Kount-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DF26EE128DF72140012F200 /* Kount-Bridging-Header.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2DFDDFB528DE02C80036E9AC /* CardinalMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */; };
+		2DFDDFB628DE02C80036E9AC /* KountDataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB428DE02C80036E9AC /* KountDataCollector.xcframework */; };
 		66030051DC01AEC167525F5A /* BSStoreCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66030242E0E8EE69BF3E073C /* BSStoreCardTests.swift */; };
 		660300EAA5412A9B2F51C177 /* BSShopperConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66030FD5BA5AD398A2EF004D /* BSShopperConfigurationTests.swift */; };
 		6603063876E32FC9C6232507 /* BSCreatePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66030DB8FB7B234A62BFC735 /* BSCreatePaymentViewController.swift */; };
@@ -83,8 +85,6 @@
 		9712871224FB7DED00BFDDCF /* BSApplePayPaymentTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9712871124FB7DED00BFDDCF /* BSApplePayPaymentTypeView.swift */; };
 		97AD855E23159D8800C6940D /* BS3DSProcessResultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD855D23159D8800C6940D /* BS3DSProcessResultRequest.swift */; };
 		97AD856023159EAC00C6940D /* BS3DSProcessResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD855F23159EAC00C6940D /* BS3DSProcessResultResponse.swift */; };
-		DEB03A9C85F648C1BCBDEC42 /* Kount-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = DEB84D43DE95794744F74D97 /* Kount-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DEB2956B373F197BF3547EC7 /* KDataCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = DEBEC07006625D7C0FFAF7B2 /* KDataCollector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DEB2DD0B164B99C6E7DE417C /* BSApplepayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB753629162521B2FF3F4AC /* BSApplepayViewController.swift */; };
 		DEB3C8BC3806435452EEB052 /* BSApplepayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBB2573B8147400F955D593 /* BSApplepayOperation.swift */; };
 		DEB9897DB66FFD195295FBF0 /* BS3DSAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB7D3DA31C49BA5F0A2F19F /* BS3DSAuthResponse.swift */; };
@@ -186,13 +186,12 @@
 		};
 		2DD2470222F31B8A003F2B4F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2D2B274828CF5AD500F1BD13 /* CardinalMobile.xcframework in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -247,7 +246,6 @@
 		2D6D37CE22B83F25006D3E9F /* DemoAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAPIHelper.swift; sourceTree = "<group>"; };
 		2D6D37CF22B83F25006D3E9F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2DADB9D81EC31F4200C1A2D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BlueSnap.storyboard; sourceTree = "<group>"; };
-		2DBB606A1F8CB8F800E80254 /* libKountDataCollector.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libKountDataCollector.a; sourceTree = "<group>"; };
 		2DBBBD2922B952DB00E30EEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DBD191F22B9595400DDB5E2 /* ReturningShopperMinimalBillingWithEmailTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturningShopperMinimalBillingWithEmailTests.swift; path = BluesnapSDKExampleUITests/CheckoutReturningShopperUITests/ReturningShopperMinimalBillingWithEmailTests.swift; sourceTree = SOURCE_ROOT; };
 		2DBD192022B9595400DDB5E2 /* ReturningShopperFullBillingWithEmailWithShippingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReturningShopperFullBillingWithEmailWithShippingTests.swift; path = BluesnapSDKExampleUITests/CheckoutReturningShopperUITests/ReturningShopperFullBillingWithEmailWithShippingTests.swift; sourceTree = SOURCE_ROOT; };
@@ -284,8 +282,13 @@
 		2DBD194222B9595600DDB5E2 /* BSUITestsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BSUITestsUtils.swift; path = BluesnapSDKExampleUITests/BSUITestsUtils.swift; sourceTree = SOURCE_ROOT; };
 		2DBD194322B9595600DDB5E2 /* SubscriptionChargeNewShopperUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionChargeNewShopperUITests.swift; path = BluesnapSDKExampleUITests/SubscriptionChargeUITests/SubscriptionChargeNewShopperUITests.swift; sourceTree = SOURCE_ROOT; };
 		2DBD194422B9595600DDB5E2 /* ShopperConfigurationUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopperConfigurationUITests.swift; path = BluesnapSDKExampleUITests/ShopperConfigurationUITests/ShopperConfigurationUITests.swift; sourceTree = SOURCE_ROOT; };
-		2DD05CC628CF56630089AF13 /* CardinalMobile.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CardinalMobile.xcframework; path = BluesnapSDK/Frameworks/CardinalMobile.xcframework; sourceTree = "<group>"; };
 		2DD2470422F31C12003F2B4F /* BSCardinalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSCardinalManager.swift; sourceTree = "<group>"; };
+		2DE768BC28E4EDA300FDC54E /* KDataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KDataCollector.h; path = "Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64/Headers/KDataCollector.h"; sourceTree = SOURCE_ROOT; };
+		2DE768BD28E4EDA300FDC54E /* KountAnalyticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KountAnalyticsViewController.h; path = "Frameworks/XCFrameworks/KountDataCollector.xcframework/ios-arm64/Headers/KountAnalyticsViewController.h"; sourceTree = SOURCE_ROOT; };
+		2DF26EE128DF72140012F200 /* Kount-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kount-Bridging-Header.h"; sourceTree = "<group>"; };
+		2DFDDFA928DDED4B0036E9AC /* CardinalMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CardinalMobile.framework; sourceTree = "<group>"; };
+		2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = CardinalMobile.xcframework; sourceTree = "<group>"; };
+		2DFDDFB428DE02C80036E9AC /* KountDataCollector.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = KountDataCollector.xcframework; sourceTree = "<group>"; };
 		66030242E0E8EE69BF3E073C /* BSStoreCardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSStoreCardTests.swift; sourceTree = "<group>"; };
 		66030D8665CA8A00DEECCE79 /* BSUpdateShopperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSUpdateShopperTests.swift; sourceTree = "<group>"; };
 		66030DA3048C1F23770CB761 /* BSStoreCardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSStoreCardTests.swift; sourceTree = "<group>"; };
@@ -304,11 +307,9 @@
 		DEB739342E9A635BBD2878B9 /* BSApplepayPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSApplepayPayment.swift; sourceTree = "<group>"; };
 		DEB753629162521B2FF3F4AC /* BSApplepayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSApplepayViewController.swift; sourceTree = "<group>"; };
 		DEB7D3DA31C49BA5F0A2F19F /* BS3DSAuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BS3DSAuthResponse.swift; sourceTree = "<group>"; };
-		DEB84D43DE95794744F74D97 /* Kount-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kount-Bridging-Header.h"; sourceTree = "<group>"; };
 		DEB92A1E5CA190FDBA6FF148 /* BSCardinalToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSCardinalToken.swift; sourceTree = "<group>"; };
 		DEBB2573B8147400F955D593 /* BSApplepayOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSApplepayOperation.swift; sourceTree = "<group>"; };
 		DEBD647E04FF2D871818D06F /* BSPKContactExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSPKContactExtention.swift; sourceTree = "<group>"; };
-		DEBEC07006625D7C0FFAF7B2 /* KDataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDataCollector.h; sourceTree = "<group>"; };
 		FD0888301FAB3259001EED4C /* BSExistingCcUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSExistingCcUIView.swift; sourceTree = "<group>"; };
 		FD0888341FAB5152001EED4C /* BSBaseBoxWithShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSBaseBoxWithShadowView.swift; sourceTree = "<group>"; };
 		FD0888361FAB56A6001EED4C /* BSPaymentTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSPaymentTypeView.swift; sourceTree = "<group>"; };
@@ -381,8 +382,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DBB606B1F8CB8F800E80254 /* libKountDataCollector.a in Frameworks */,
-				2DD05CC728CF56630089AF13 /* CardinalMobile.xcframework in Frameworks */,
+				2DFDDFB528DE02C80036E9AC /* CardinalMobile.xcframework in Frameworks */,
+				2DFDDFB628DE02C80036E9AC /* KountDataCollector.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +449,6 @@
 		2D374F221E880E7200AE2A81 /* BluesnapSDK */ = {
 			isa = PBXGroup;
 			children = (
-				2DBB606A1F8CB8F800E80254 /* libKountDataCollector.a */,
 				FD4750B91EF7D62000E5DFBC /* Helpers */,
 				FD4750B61EF2A0AE00E5DFBC /* CustomControls */,
 				FD17062F1E93727D00552A35 /* Screens */,
@@ -460,8 +460,9 @@
 				2D374F241E880E7200AE2A81 /* Info.plist */,
 				FD6814641F40419C00FAE1ED /* BSLocalizable.strings */,
 				FD53ABAF1EBDFCEB0055C34D /* Media.xcassets */,
-				DEBEC07006625D7C0FFAF7B2 /* KDataCollector.h */,
-				DEB84D43DE95794744F74D97 /* Kount-Bridging-Header.h */,
+				2DF26EE128DF72140012F200 /* Kount-Bridging-Header.h */,
+				2DE768BC28E4EDA300FDC54E /* KDataCollector.h */,
+				2DE768BD28E4EDA300FDC54E /* KountAnalyticsViewController.h */,
 			);
 			path = BluesnapSDK;
 			sourceTree = "<group>";
@@ -516,7 +517,8 @@
 		2D6D376022B7F5BD006D3E9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2DD05CC628CF56630089AF13 /* CardinalMobile.xcframework */,
+				2DFDDFB228DE02C80036E9AC /* XCFrameworks */,
+				2DFDDFA828DDED4B0036E9AC /* FATFrameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -576,6 +578,25 @@
 			name = CheckoutReturningShopperUITests;
 			path = BluesnapSDKExampleUITests/CheckoutReturningShopperUITests;
 			sourceTree = SOURCE_ROOT;
+		};
+		2DFDDFA828DDED4B0036E9AC /* FATFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DFDDFA928DDED4B0036E9AC /* CardinalMobile.framework */,
+			);
+			name = FATFrameworks;
+			path = Frameworks/FATFrameworks;
+			sourceTree = "<group>";
+		};
+		2DFDDFB228DE02C80036E9AC /* XCFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */,
+				2DFDDFB428DE02C80036E9AC /* KountDataCollector.xcframework */,
+			);
+			name = XCFrameworks;
+			path = Frameworks/XCFrameworks;
+			sourceTree = "<group>";
 		};
 		87A317B921BFD77400156EA2 /* BluesnapSDKIntegrationTests */ = {
 			isa = PBXGroup;
@@ -686,8 +707,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D374F311E880E7300AE2A81 /* BluesnapSDK.h in Headers */,
-				DEB2956B373F197BF3547EC7 /* KDataCollector.h in Headers */,
-				DEB03A9C85F648C1BCBDEC42 /* Kount-Bridging-Header.h in Headers */,
+				2DF26EE328DF90810012F200 /* Kount-Bridging-Header.h in Headers */,
+				2DE768BF28E4EDA300FDC54E /* KountAnalyticsViewController.h in Headers */,
+				2DE768BE28E4EDA300FDC54E /* KDataCollector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1331,6 +1353,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BluesnapSDK/**",
 					"$(PROJECT_DIR)/BluesnapSDK/Frameworks/",
+					"$(PROJECT_DIR)/FATFrameworks",
+					"$(PROJECT_DIR)/Frameworks/FATFrameworks",
 				);
 				INFOPLIST_FILE = BluesnapSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1344,8 +1368,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BluesnapSDK",
 				);
-				MARKETING_VERSION = 1.4.4;
-				ONLY_ACTIVE_ARCH = YES;
+				MARKETING_VERSION = 1.5.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluesnap.BluesnapSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1375,6 +1399,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BluesnapSDK/**",
 					"$(PROJECT_DIR)/BluesnapSDK/Frameworks/",
+					"$(PROJECT_DIR)/FATFrameworks",
+					"$(PROJECT_DIR)/Frameworks/FATFrameworks",
 				);
 				INFOPLIST_FILE = BluesnapSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1388,8 +1414,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BluesnapSDK",
 				);
-				MARKETING_VERSION = 1.4.4;
-				ONLY_ACTIVE_ARCH = YES;
+				MARKETING_VERSION = 1.5.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluesnap.BluesnapSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1474,6 +1500,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluesnap.BluesnapSDKExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
