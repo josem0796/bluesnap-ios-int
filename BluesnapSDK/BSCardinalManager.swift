@@ -28,23 +28,31 @@ class BSCardinalManager: NSObject {
             return
         }
         
-        session = CardinalSession()
-        let config = CardinalSessionConfiguration()
-
-        if (isProduction) {
-
-            config.deploymentEnvironment = .production
-        } else  {
-
-            config.deploymentEnvironment = .staging
-        }
-        config.uiType = .native
-
-        let renderType = [CardinalSessionRenderTypeOTP, CardinalSessionRenderTypeHTML]
-        config.renderType = renderType
-        config.enableQuickAuth = true
-        config.enableDFSync = true
-        session.configure(config)
+        
+            
+            self.session = CardinalSession()
+            
+            let config = CardinalSessionConfiguration()
+            
+            if (isProduction) {
+                
+                config.deploymentEnvironment = .production
+            } else  {
+                
+                config.deploymentEnvironment = .staging
+            }
+            config.uiType = .native
+            
+            let renderType = [CardinalSessionRenderTypeOTP, CardinalSessionRenderTypeOOB, CardinalSessionRenderTypeSingleSelect, CardinalSessionRenderTypeMultiSelect]
+            config.renderType = renderType
+            config.enableDFSync = true
+            config.collectLogs = !isProduction // don't collect logs on production
+            self.session.configure(config)
+            let warrnings = self.session.getWarnings();
+            NSLog("Cardinal session setup warrnings \(warrnings)");
+            for w in warrnings {
+                NSLog("warrning  \(w.warningID ?? "No code" )  \(w.message ?? "No message") ");
+            }
     }
     
     internal func setupCardinal(_ completion: @escaping () -> Void) {
@@ -54,15 +62,15 @@ class BSCardinalManager: NSObject {
             return
         }
         
-        session.setup(jwtString: self.cardinalToken!,
+        self.session.setup(jwtString: self.cardinalToken!,
                       completed: { sessionID in
                         NSLog("cardinal setup complete")
                         completion()
                         },
                       
                       validated: { validateResponse in
-                        // in case of an error we continue with the flow
-                        NSLog("cardinal setup failed")
+                        // As defined by payments , in case of an error we continue with the flow, server side might fail TX
+                        NSLog("Cardinal setup failed \(validateResponse.errorNumber) \(validateResponse.errorDescription) ");
                         self.setCardinalError(cardinalError: true)
                         completion()
                         })
@@ -75,8 +83,6 @@ class BSCardinalManager: NSObject {
             completion(threeDSAuthResult, nil)
             return
         }
-
-//        let response: BS3DSAuthResponse  = BS3DSAuthResponse()
 
         BSApiManager.requestAuthWith3ds(currency: currency, amount: amount, cardinalToken: cardinalToken!, completion: { response, error in
             if (error != nil) {

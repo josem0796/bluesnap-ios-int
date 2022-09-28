@@ -84,10 +84,13 @@ open class BlueSnapSDK: NSObject {
                 }
                 
                 BSCardinalManager.instance.setCardinalJWT(cardinalToken: sdkData.cardinalToken)
+                if (!bsToken.isProduction ) {
+                    NSLog("Cadinal token is  \(sdkData.cardinalToken)");
+                }
                 if (initCardinal){
-                    BSCardinalManager.instance.configureCardinal(isProduction: bsToken.isProduction)
-                    BSCardinalManager.instance.setupCardinal {
-                        completion(nil)
+                    DispatchQueue.main.async {
+                        BSCardinalManager.instance.configureCardinal(isProduction: bsToken.isProduction)
+                        BSCardinalManager.instance.setupCardinal {completion(nil)}
                     }
                 } else {
                     completion(nil)
