@@ -48,11 +48,9 @@ Some of the capabilities include:
 * Reguler payments, shopper configuration and subscription charges.
 
 # Installation
-> The SDK is written in Swift 5, using Xcode 11.3.1.
 
 ## Requirements
-* Xcode 10+
-* [BlueSnap API credentials](https://support.bluesnap.com/docs/api-credentials) 
+* [BlueSnap API credentials](https://support.bluesnap.com/docs/api-credentials)
 
 ## CocoaPods (Optional, CocoaPods 1.1.0+)
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
@@ -81,6 +79,31 @@ Then, run the following command:
 $ pod install
 ```
 > Use the .xcworkspace file to open your project in Xcode.
+
+### 1. Add CardinalMobile.framework to support 3DS 
+* CardinalMobile is shipped both as a framework and a universal framework. follow the instructions bellow for embedding a Framework.
+
+
+1. After you install BluesnapSDK directly or via package manager, locate `CardinalMobile.framework` under the Frameworks directory in BluesnapSDK.
+1. Right click on `CardinalMobile.framework` and select _Show in Finder_.
+1. Drag and drop `CardinalMobile.framework` from the Finder into your  project 
+  * Select _Copy items if needed_.
+   Open your project's settings and selectyour app target in the General tab
+* Under the _Frameworks, Libraries, and Embedded Content_ section, make sure `CardinalMobile.framework` is set to “Embed & Sign”
+1. Go to the Build Phases tab. Under _Link Binary With Libraries_, make sure the framework is listed. This should happen automatically, but if not, add the framework manually via the `+` button.
+
+##### 2. Remove simulator slices
+
+CardinalMobile.framework contains architectures for both devices and simulators. When uploading to App Store Connect, Xcode will emit an error if the simulator slices have not been removed.
+
+Run the following commandline in the directory containing `CardinalMobile.framework` 
+
+```sh
+lipo -remove i386 -remove x86_64 -output CardinalMobile.framework/CardinalMobile CardinalMobile.framework/CardinalMobile
+```
+*  You'll need to run this command each time you archive. or to add a script to your xcode project settings build steps.
+
+
 
 ## Disable landscape mode
 Landscape mode is not supported in our UI, so in order to make sure the screen does not rotate with the device, you need to add this code to your application's AppDelegate.swift file:
