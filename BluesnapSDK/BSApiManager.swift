@@ -409,7 +409,6 @@ import Foundation
         let checkErrorAndComplete : ([String:String], BSErrors?) -> Void = { resultData, error in
             if let error = error {
                 completion(resultData, error)
-                debugPrint(error.description())
                 return
             }
             completion(resultData, nil)
