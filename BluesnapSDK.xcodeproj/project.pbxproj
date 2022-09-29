@@ -71,11 +71,16 @@
 		2DBD196822B9599F00DDB5E2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37AB22B83F25006D3E9F /* Configuration.swift */; };
 		2DBD196922B9599F00DDB5E2 /* DemoAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37CE22B83F25006D3E9F /* DemoAPIHelper.swift */; };
 		2DBD196A22B959BB00DDB5E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37AD22B83F25006D3E9F /* AppDelegate.swift */; };
+		2DC4BABE28E613AA005850A3 /* CardinalMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */; };
+		2DC4BABF28E613AE005850A3 /* CardinalMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */; };
+		2DC4BAC028E613AE005850A3 /* CardinalMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */; };
+		2DC4BAC128E613AF005850A3 /* CardinalMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */; };
+		2DC4BAC228E6142A005850A3 /* CardinalMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DD2470522F31C12003F2B4F /* BSCardinalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2470422F31C12003F2B4F /* BSCardinalManager.swift */; };
 		2DD7F11D1E8828B2002C5571 /* BluesnapSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D374F201E880E7200AE2A81 /* BluesnapSDK.framework */; };
-		2DE768BE28E4EDA300FDC54E /* KDataCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE768BC28E4EDA300FDC54E /* KDataCollector.h */; };
-		2DE768BF28E4EDA300FDC54E /* KountAnalyticsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE768BD28E4EDA300FDC54E /* KountAnalyticsViewController.h */; };
-		2DF26EE328DF90810012F200 /* Kount-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DF26EE128DF72140012F200 /* Kount-Bridging-Header.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2DE768BE28E4EDA300FDC54E /* KDataCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE768BC28E4EDA300FDC54E /* KDataCollector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DE768BF28E4EDA300FDC54E /* KountAnalyticsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DE768BD28E4EDA300FDC54E /* KountAnalyticsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DF26EE328DF90810012F200 /* Kount-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DF26EE128DF72140012F200 /* Kount-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DFDDFB528DE02C80036E9AC /* CardinalMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB328DE02C80036E9AC /* CardinalMobile.xcframework */; };
 		2DFDDFB628DE02C80036E9AC /* KountDataCollector.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFDDFB428DE02C80036E9AC /* KountDataCollector.xcframework */; };
 		66030051DC01AEC167525F5A /* BSStoreCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66030242E0E8EE69BF3E073C /* BSStoreCardTests.swift */; };
@@ -179,6 +184,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2DC4BAC228E6142A005850A3 /* CardinalMobile.xcframework in Embed Frameworks */,
 				2D3D88C428CF602E0069888F /* BluesnapSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -392,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DD7F11D1E8828B2002C5571 /* BluesnapSDK.framework in Frameworks */,
+				2DC4BABF28E613AE005850A3 /* CardinalMobile.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D3D88C628CF62070069888F /* BluesnapSDK.framework in Frameworks */,
+				2DC4BABE28E613AA005850A3 /* CardinalMobile.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +415,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DC4BAC128E613AF005850A3 /* CardinalMobile.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87A317BD21BFD77400156EA2 /* BluesnapSDK.framework in Frameworks */,
+				2DC4BAC028E613AE005850A3 /* CardinalMobile.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
