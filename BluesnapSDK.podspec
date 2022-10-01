@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BluesnapSDK"
-  s.version      = "1.5.0"
+  s.version      = "1.5.1"
   s.summary      = "An iOS SDK for Bluesnap "
   s.description  = <<-DESC
   Integrate payment methods into your iOS native apps quickly and easily.
@@ -17,39 +17,25 @@ Pod::Spec.new do |s|
                             'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
                             'ONLY_ACTIVE_ARCH' => 'NO' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.resource_bundles = {
-    'BluesnapUI' => [
-        'BluesnapSDK/**/*.xib',
-        'BluesnapSDK/**/*.storyboard',
-        'BluesnapSDK/**/Media.xcassets',
-        'BluesnapSDK/**/*.strings' 
-	]
-  }
-
-  s.default_subspecs = %w[Core BSKDataCollector]
-
-
-  #s.exclude_files =  ["Frameworks/FATFrameworks/CardinalMobile/**/", "BluesnapSDK/BluesnapSDKTests/**/*.*","BluesnapSDK/BluesnapSDKIntegrationTests/**/*.*","BluesnapSDK/**/libKountDataCollector.a","BluesnapSDK/**/KDataCollector.{h,m}" ]
-  s.exclude_files =  ["Frameworks/XCFrameworks/KountDataCollector.xcframework/**" "Frameworks/FATFrameworks/CardinalMobile/**/", "BluesnapSDK/BluesnapSDKTests/**/*.*","BluesnapSDK/BluesnapSDKIntegrationTests/**/*.*", "BluesnapSDK/**/libKountDataCollector.a","BluesnapSDK/**/KDataCollector.{h,m}"]
-  s.ios.vendored_frameworks = ['Frameworks/FATFrameworks/CardinalMobile.framework']
-
-  s.resources = "BluesnapSDK/**/Media.xcassets"
+  
+  s.resources =[ 'BluesnapSDK/**/Media.xcassets' ,  'BluesnapSDK/**/Assets.car']
   s.frameworks                     = 'Foundation', 'Security', 'WebKit', 'PassKit', 'AddressBook', 'UIKit' ,
   s.weak_frameworks                = 'Contacts'
   s.requires_arc = true
 
-  
-  s.subspec "BSKDataCollector" do |s|
-      s.public_header_files = "BluesnapSDK/**/KDataCollector*.h","BluesnapSDK/**/KountAnalyticsViewController.h"
-      s.vendored_frameworks = "Frameworks/XCFrameworks/KountDataCollector.xcframework"
-  
-  end
 
+  s.source_files  = ["BluesnapSDK/**/*.swift",  "BluesnapSDK/Kount-Bridging-Header.h", "Frameworks/**/KDataCollector.h", "Frameworks/**/KountAnalyticsViewController.h"]
+  s.public_header_files =  ["BluesnapSDK/Kount-Bridging-Header.h" , "Frameworks/**/KDataCollector.h", "Frameworks/**/KountAnalyticsViewController.h"]
+  s.ios.vendored_frameworks = ['Frameworks/FATFrameworks/CardinalMobile.framework',"Frameworks/XCFrameworks/KountDataCollector.xcframework" ]
+  s.resource_bundles = {
+  'BluesnapUI' => [
+         'BluesnapSDK/**/*.xib',
+         'BluesnapSDK/**/*.storyboard',
+         'BluesnapSDK/**/Media.xcassets',
+         'BluesnapSDK/**/Assets.car',
+         'BluesnapSDK/**/*.strings' 
 
-  s.subspec "Core" do |s|
-    s.source_files  = "BluesnapSDK/**/*.{h,m}"
-    s.public_header_files = "BluesnapSDK/BluesnapSDK.h"
-    s.dependency "BluesnapSDK/BSKDataCollector"
-  end
+  ]}
+
 
 end
