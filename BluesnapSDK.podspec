@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BluesnapSDK"
-  s.version      = "1.5.1"
+  s.version      = "1.5.2"
   s.summary      = "An iOS SDK for Bluesnap "
   s.description  = <<-DESC
   Integrate payment methods into your iOS native apps quickly and easily.
@@ -22,7 +22,6 @@ Pod::Spec.new do |s|
   s.frameworks                     = 'Foundation', 'Security', 'WebKit', 'PassKit', 'AddressBook', 'UIKit' ,
   s.weak_frameworks                = 'Contacts'
   s.requires_arc = true
-
 
   s.source_files  = ["BluesnapSDK/**/*.swift",  "BluesnapSDK/Kount-Bridging-Header.h", "Frameworks/**/KDataCollector.h", "Frameworks/**/KountAnalyticsViewController.h"]
   s.public_header_files =  ["BluesnapSDK/Kount-Bridging-Header.h" , "Frameworks/**/KDataCollector.h", "Frameworks/**/KountAnalyticsViewController.h"]

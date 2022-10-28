@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../bsneo/Bluesnap/Bluesnap.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:BluesnapSDK.xcodeproj">
    </FileRef>
 </Workspace>
