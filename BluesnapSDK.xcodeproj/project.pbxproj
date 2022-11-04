@@ -25,7 +25,6 @@
 		2D6D37D422B83F25006D3E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D6D37A422B83F25006D3E9F /* Main.storyboard */; };
 		2D6D37D622B83F25006D3E9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D6D37A622B83F25006D3E9F /* Localizable.strings */; };
 		2D6D37DC22B83F25006D3E9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D6D37B022B83F25006D3E9F /* LaunchScreen.storyboard */; };
-		2D6D37E322B83F25006D3E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D6D37C622B83F25006D3E9F /* Assets.xcassets */; };
 		2D6D37E422B83F25006D3E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D6D37C622B83F25006D3E9F /* Assets.xcassets */; };
 		2D6D37EB22B83F62006D3E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37AD22B83F25006D3E9F /* AppDelegate.swift */; };
 		2D6D37EC22B83F62006D3E9F /* BSTestingAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D37BE22B83F25006D3E9F /* BSTestingAPIService.swift */; };
@@ -911,7 +910,6 @@
 				FD53ABB01EBDFCEB0055C34D /* Media.xcassets in Resources */,
 				FD6814621F40419C00FAE1ED /* BSLocalizable.strings in Resources */,
 				2DADB9D51EC31F3200C1A2D2 /* BlueSnap.storyboard in Resources */,
-				2D6D37E322B83F25006D3E9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1378,7 +1376,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BluesnapSDK",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluesnap.BluesnapSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1424,7 +1422,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BluesnapSDK",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluesnap.BluesnapSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
