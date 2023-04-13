@@ -8,6 +8,7 @@
 
 import Foundation
 import NaturalLanguage
+import UIKit
 public class BSValidator: NSObject {
     
     

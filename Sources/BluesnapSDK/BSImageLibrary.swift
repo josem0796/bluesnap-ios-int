@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  This class lets you get the icons and images used by BlueSnap IOs SDK

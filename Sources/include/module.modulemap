@@ -1,0 +1,4 @@
+module BluesnapSDK {
+  header "KDataCollector.h"
+  export *
+}
