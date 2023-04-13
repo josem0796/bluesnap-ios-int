@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 class BSCurrencyTableViewCell : UITableViewCell {
     
     //MARK: items in cell UI

@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum BSColorCompat {
     public static var label: UIColor {

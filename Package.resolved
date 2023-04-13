@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "kount-ios-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kount/kount-ios-swift-package",
+      "state" : {
+        "revision" : "2a50eabb81e6a90b57027fb0dd8e6e76325e439b",
+        "version" : "4.1.9"
+      }
+    }
+  ],
+  "version" : 2
+}

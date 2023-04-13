@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 class BSCountryTableViewCell : UITableViewCell {
     
     //MARK: items in cell UI
