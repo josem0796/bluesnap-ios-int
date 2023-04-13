@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "BluesnapSDK"
+  s.name         = "BluesnapLukaSDK"
   s.version      = "1.5.2"
   s.summary      = "An iOS SDK for Bluesnap "
   s.description  = <<-DESC
@@ -14,9 +14,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.source       = { :git => "https://github.com/bluesnap/bluesnap-ios.git", :tag => "#{s.version}" }
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0',
-                            'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
                             'ONLY_ACTIVE_ARCH' => 'NO' }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   
   #s.resources =[ 'BluesnapSDK/**/Media.xcassets' ,  'BluesnapSDK/**/Assets.car']
   s.frameworks                     = 'Foundation', 'Security', 'WebKit', 'PassKit', 'AddressBook', 'UIKit' ,
